@@ -45,13 +45,19 @@ export class AppComponent {
     this.length = parseInt(inputElement.value);
   }
 
-  useLetter() {
-    this.includeLetters = !this.includeLetters;
+  useLetter(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    this.includeLetters = inputElement.value == 'true' ? true : false;
+    console.log(this.includeLetters);
   }
-  useNumber() {
-    this.includeNumber = !this.includeNumber;
+  useNumber(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    this.includeNumber = inputElement.value == 'true' ? true : false;
+    console.log(this.includeNumber);
   }
-  useSymbol() {
-    this.includeSymbol = !this.includeSymbol;
+  useSymbol(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    this.includeSymbol = inputElement.value == 'true' ? true : false;
+    console.log(this.includeSymbol);
   }
 }
