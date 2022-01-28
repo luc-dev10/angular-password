@@ -1,40 +1,148 @@
-<h1>Password Generator</h1>
+<div class="container">
+  <div class="columns is-centered mt-6">
+    <div class="box column is-one-third">
+      <!-- password -->
+      <div class="field">
+        <label class="label">Your Password</label>
+        <div class="control">
+          <input
+            class="input"
+            (input)="fetchSize($event)"
+            type="text"
+            [value]="password"
+            disabled
+          />
+        </div>
+      </div>
 
-<div>
-  <label>Enter Length</label>
-  <input (input)="fetchSize($event)" type="number" max="2" />
-</div>
+      <!-- length -->
+      <div class="field">
+        <label class="label">Enter Length</label>
+        <div class="control">
+          <input
+            class="input"
+            (input)="fetchSize($event)"
+            type="number"
+            max="2"
+          />
+        </div>
+      </div>
 
-<div>
-  <label>Use letters</label>
-  <input (change)="useLetter()" type="checkbox" />
-</div>
+      <!-- letters -->
+      <div class="field">
+        <label class="label">Use letters</label>
+        <div class="control">
+          <label class="radio">
+            <input
+              type="radio"
+              name="letterField"
+              value="true"
+              (click)="useLetter($event)"
+            />
+            Yes
+          </label>
+          <label class="radio">
+            <input
+              type="radio"
+              name="letterField"
+              value="false"
+              checked
+              (click)="useLetter($event)"
+            />
+            No
+          </label>
+        </div>
+      </div>
 
-<div>
-  <label>Use Numbers</label>
-  <input (change)="useNumber()" type="checkbox" />
-</div>
+      <!-- <div class="field">
+        <label class="label">Use letters</label>
+        <div class="control">
+          <input class="checkbox" type="checkbox" (change)="useLetter()" />
+        </div>
+      </div> -->
 
-<div>
-  <label>Use Symbols</label>
-  <input (change)="useSymbol()" type="checkbox" />
-</div>
+      <!-- numbers -->
+      <div class="field">
+        <label class="label">Use Numbers</label>
+        <div class="control">
+          <label class="radio">
+            <input
+              type="radio"
+              name="numberField"
+              value="true"
+              (click)="useNumber($event)"
+            />
+            Yes
+          </label>
+          <label class="radio">
+            <input
+              type="radio"
+              name="numberField"
+              value="false"
+              checked
+              (click)="useNumber($event)"
+            />
+            No
+          </label>
+        </div>
+      </div>
 
-<button
-  (click)="generatePass()"
-  [disabled]="
-    !(
-      (includeLetters == true ||
-        includeNumber == true ||
-        includeSymbol == true) &&
-      length != 0
-    )
-  "
->
-  Generate
-</button>
+      <!-- <div class="field">
+        <label class="label">Use Numbers</label>
+        <div class="control">
+          <input class="checkbox" (change)="useNumber()" type="checkbox" />
+        </div>
+      </div> -->
 
-<div>
-  <label>Your Password</label>
-  <input type="text" [value]="password" />
+      <!-- symbols -->
+      <div class="field">
+        <label class="label">Use Symbols</label>
+        <div class="control">
+          <label class="radio">
+            <input
+              type="radio"
+              name="symbolField"
+              value="true"
+              (click)="useSymbol($event)"
+            />
+            Yes
+          </label>
+          <label class="radio">
+            <input
+              type="radio"
+              name="symbolField"
+              value="false"
+              checked
+              (click)="useSymbol($event)"
+            />
+            No
+          </label>
+        </div>
+      </div>
+
+      <!-- <div class="field">
+        <label class="label">Use Symbols</label>
+        <div class="control">
+          <input class="checkbox" (change)="useSymbol()" type="checkbox" />
+        </div>
+      </div> -->
+
+      <!-- button -->
+      <button
+        class="button is-danger"
+        (click)="generatePass()"
+        [disabled]="
+          !(
+            (includeLetters == true ||
+              includeNumber == true ||
+              includeSymbol == true) &&
+            length != 0
+          )
+        "
+      >
+        Generate
+      </button>
+      <!-- end  -->
+    </div>
+  </div>
 </div>
